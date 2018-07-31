@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+   {% block content %}
+    <div class="row">
+        <div class="col">
+            <div class=" color-wh">
+                <p>Are you sure to delete {{movie}} ?</p>
+                <form method="POST" action="/movies/{{movie}}/delete">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+   {% endblock %}

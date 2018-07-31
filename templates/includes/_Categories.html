@@ -1,0 +1,8 @@
+ <h3 class="mb-3 mt-3">Categories</h3>
+<ul class="list-group list-group-flush">
+    {% for cate in allCategory %}
+    <a href="/movies/{{cate.title}}/items">
+        <li class="list-group-item">{{cate.title}}</li>
+    </a>
+    {% endfor %}
+</ul>

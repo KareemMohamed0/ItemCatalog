@@ -1,0 +1,12 @@
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="/">
+    Item Catalog App - {{session['email']}}
+  </a>
+  <div class="inline login">
+      {%if 'email' not in session %}
+      <a class="button" href="googleconnect">Login </a>
+      {% else %}
+      <a class="button" href="googledisconnect">Logout </a>
+      {% endif %}
+    </div>
+</nav>

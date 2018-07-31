@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+   {% block content %}
+   
+   <div class="pt-0 row">
+       <div class="col-md-3 col-xs-12">
+             <a href="/category/add" class='btn btn-lg'>
+                <i class="fas fa-plus"></i>
+            </a>
+            {% with allCategory=allCategory %}
+                {% include './includes/_Categories.html' %}
+            {% endwith %}
+       </div>
+       <div class="col-md-9 col-xs-12">
+            <a href="/movies/add" class='btn btn-lg'>
+                <i class="fas fa-plus"></i>
+            </a>
+             {% with movies=movies , title=title , count=movieCount %}
+                {% include './includes/_Movies.html' %}
+            {% endwith %}
+       </div>
+   </div>
+       
+   {% endblock %}

@@ -1,0 +1,8 @@
+<h3 class="mb-3 mt-3">{{title}} movies {% if count %}  ({{count}} movies) {% endif %}</h3>
+<ul class="list-group list-group-flush">
+    {% for movie in movies %}
+    <a href="/movies/{{movie.title}}">
+        <li class="list-group-item">{{movie.title}} <span>({{movie.category.title}})</span></li>
+    </a>
+    {% endfor %}
+</ul>
