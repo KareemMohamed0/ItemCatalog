@@ -13,7 +13,16 @@ Application that allow to the user to create retrieve update delete (crud) movie
 
 #### How to run ?
 -from the command line excute :
-1. ``vagrant up`` to launch your VM
-2. ``vagrant ssh`` to login 
-3. ``python app.py`` to excute the program
-4. app run at http://127.0.0.1:5000
+1. Install Vagrant and VirtualBox
+2. Clone the fullstack-nanodegree-vm : https://github.com/udacity/fullstack-nanodegree-vm
+3. clone the project file into ``fullstack-nanodegree-vm/vagrant/catalog``
+4. open cli at project directory
+4. ``vagrant up`` to launch your VM
+5. ``vagrant ssh`` to login 
+6. ``cd /vagrant/catalog`` to open shared folder
+7. run ``sudo pip install -r requirements``
+7. ``python app.py`` to excute the program
+8. app run at http://127.0.0.1:5000
+
+### Notes
+Add category form it's only for seeding the project
