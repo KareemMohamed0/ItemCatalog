@@ -16,9 +16,8 @@ import datetime
 
 app = Flask(__name__)
 
-GOOGLE_CLIENT_ID = \
-    '''983738969170-s1qh0a7ca06i9vom5f29jdb4b1nnv56t
-.apps.googleusercontent.com'''
+GOOGLE_CLIENT_ID = '983738969170-s1qh0a7ca06i9vom5f29jdb4b1nnv56t.'\
+                   'apps.googleusercontent.com'
 
 GOOGLE_CLIENT_SECRET = '6mV_o_Q3OQMIXgcp8ijAVLBz'
 REDIRECT_URI = '/oauth2callback'
@@ -76,6 +75,11 @@ def logout():
 
 @app.route('/googleconnect')
 def index():
+
+    if 'email' in session:
+        flash('you already authenticated')
+        return redirect('/')
+
     access_token = session.get('access_token')
     if access_token is None:
         return redirect(url_for('login'))
@@ -99,6 +103,7 @@ def index():
     user = json.loads(res.read())
     addUserIfNotExist(user)
     session['email'] = user.get('email')
+
     session['id'] = user.get('id')
     return redirect(url_for('home'))
 
@@ -175,7 +180,7 @@ def deleteMovie(movie):
 
 # Update  Movie
 
-@app.route('/movies/<string:movie>/update', methods=['GET', 'POST'])
+@app.route('/movies/<string:movie>/edit', methods=['GET', 'POST'])
 def updateMovie(movie):
 
     if 'email' not in session:
