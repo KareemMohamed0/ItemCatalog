@@ -16,10 +16,8 @@ import datetime
 
 app = Flask(__name__)
 
-GOOGLE_CLIENT_ID = '983738969170-s1qh0a7ca06i9vom5f29jdb4b1nnv56t.'\
-                   'apps.googleusercontent.com'
-
-GOOGLE_CLIENT_SECRET = '6mV_o_Q3OQMIXgcp8ijAVLBz'
+GOOGLE_CLIENT_ID = 'add_your_id_here'
+GOOGLE_CLIENT_SECRET = 'add_your_seceret_here'
 REDIRECT_URI = '/oauth2callback'
 
 engine = create_engine('sqlite:///moviesCatalog.db', echo=True)
@@ -47,8 +45,8 @@ google = oauth.remote_app(
     consumer_secret=GOOGLE_CLIENT_SECRET,
     )
 
-
 # register if first time login by google
+
 
 def addUserIfNotExist(user):
 
@@ -146,6 +144,9 @@ def home():
 def addCategory():
     if request.form:
         req = request.form
+        if not req.get('title'):
+            flash('Movie title is required')
+            return redirect(url_for('addCategory'))
         dbSession.add(Category(title=req.get('title')))
         dbSession.commit()
 
@@ -194,6 +195,19 @@ def updateMovie(movie):
 
     if request.form:
         req = request.form
+        if not req.get('title'):
+            flash('Movie title is required')
+            return redirect(url_for('addMovie'))
+        if not req.get('image'):
+            flash('Movie image url is required')
+            return redirect(url_for('addMovie'))
+        if not req.get('description'):
+            flash('Movie description is required')
+            return redirect(url_for('addMovie'))
+        if not req.get('category_id'):
+            flash('Movie category is required')
+            return redirect(url_for('addCategory'))
+
         editedMovie.title = req.get('title')
         editedMovie.category_id = req.get('category_id')
         editedMovie.description = req.get('description')
@@ -242,6 +256,19 @@ def addMovie():
 
     if request.form:
         req = request.form
+        if not req.get('title'):
+            flash('Movie title is required')
+            return redirect(url_for('addMovie'))
+        if not req.get('image'):
+            flash('Movie image url is required')
+            return redirect(url_for('addMovie'))
+        if not req.get('description'):
+            flash('Movie description is required')
+            return redirect(url_for('addMovie'))
+        if not req.get('category_id'):
+            flash('Movie category is required')
+            return redirect(url_for('addCategory'))
+
         now = datetime.datetime.now()
         movie = Movie(
             title=req.get('title'),

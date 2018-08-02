@@ -9,7 +9,16 @@ Application that allow to the user to create retrieve update delete (crud) movie
 + virtual box 
 + vagrant
 + flask
-+ visit http://console.developers.google.com to set up a client id and secret
+
+#### google auth integration 
+1. goto http://console.developers.google.com
+2. Login 
+3. click on ``Credentials`` tab
+4. Create Crendentials
+5. Select `` OAuth client id``
+6. Add project url ``http://127.0.0.1:5000`` and redirecturl is ``http://127.0.0.1:5000/oauth2callback``
+7. Create your web app
+8. Copy client id and client seceret to line 19 and 20 on ``app.py`` folder
 
 #### How to run ?
 -from the command line excute :

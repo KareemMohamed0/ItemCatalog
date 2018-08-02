@@ -5,19 +5,19 @@
         <form  method="POST" action="/movies/add">
             <div class="form-group">
                 <label for="title">Movie Title</label>
-                <input type="text" class="form-control" id="title" name="title" placeholder="Category title">
+                <input type="text" class="form-control" id="title" name="title" placeholder="Category title" required>
             </div>
              <div class="form-group">
                 <label for="image">Image Url</label>
-                <input type="text" class="form-control" id="image" name="image" placeholder="Image Url">
+                <input type="url" class="form-control" id="image" name="image" placeholder="Image Url" required>
             </div>
             <div class="form-group">
                 <label for="description">Movie Description</label>
-                <textarea cols="3" class="form-control" id="description" name="description" placeholder="Description"></textarea>
+                <textarea cols="3" class="form-control" id="description" name="description" placeholder="Description" required></textarea>
             </div>
               <div class="form-group">
                 <label for="Category">Select Category</label>
-                <select class="form-control" id="Category" name="category_id">
+                <select class="form-control" id="Category" name="category_id" required>
                     {% for cate in allCategory %}
                     <option value="{{cate.id}}">{{cate.title}}</option>
                     {% endfor %}

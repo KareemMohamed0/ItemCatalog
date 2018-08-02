@@ -4,9 +4,9 @@
   </a>
   <div class="inline login">
       {%if 'email' not in session %}
-      <a class="button" href="googleconnect">Login </a>
+      <a class="button" href="{{url_for('index')}}">Login </a>
       {% else %}
-      <a class="button" href="googledisconnect">Logout </a>
+      <a class="button" href="{{url_for('logout')}}">Logout </a>
       {% endif %}
     </div>
 </nav>
