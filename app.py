@@ -142,6 +142,11 @@ def home():
 
 @app.route('/category/add', methods=['GET', 'POST'])
 def addCategory():
+    
+    if 'email' not in session:
+        flash('authentication required')
+        return redirect('/')
+        
     if request.form:
         req = request.form
         if not req.get('title'):
