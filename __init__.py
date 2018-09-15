@@ -20,7 +20,7 @@ GOOGLE_CLIENT_ID = 'add_your_id_here'
 GOOGLE_CLIENT_SECRET = 'add_your_seceret_here'
 REDIRECT_URI = '/oauth2callback'
 
-engine = create_engine('postgresql:///kareem:123456@localhost/itemscatalog')
+engine = create_engine('postgresql://kareem:123456@localhost/itemscatalog')
 Base.metadata.bind = engine
 dbSession = scoped_session(sessionmaker(bind=engine))
 

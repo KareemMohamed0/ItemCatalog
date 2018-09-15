@@ -62,6 +62,6 @@ class Movie(Base):
             'category': self.category.title
         }
 
-engine = create_engine('postgresql:///kareem:123456@localhost/itemscatalog')
+engine = create_engine('postgresql://kareem:123456@localhost/itemscatalog')
 
 Base.metadata.create_all(engine)
